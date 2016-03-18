@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.DataLayer", "HR-Department.DataLayer\HR-Department.DataLayer.csproj", "{C1A32539-0576-420E-B820-5ED6AABCD973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.IntegrationTest", "HR-Department.IntegrationTest\HR-Department.IntegrationTest.csproj", "{C3D66A6F-1535-41B3-8068-7C31DE76029F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.Models", "HR-Department.Models\HR-Department.Models.csproj", "{A6450B8E-178C-43FE-953A-2D7697A580F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.Records", "HR-Department.Records\HR-Department.Records.csproj", "{D73179A4-78D2-42D5-BECC-58A8A2AF2795}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{855ECAD8-1EB1-4144-B04B-5B78E477DAA2}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.TimeKeeping", "HR-Department.TimeKeeping\HR-Department.TimeKeeping.csproj", "{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1A32539-0576-420E-B820-5ED6AABCD973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A32539-0576-420E-B820-5ED6AABCD973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A32539-0576-420E-B820-5ED6AABCD973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A32539-0576-420E-B820-5ED6AABCD973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D66A6F-1535-41B3-8068-7C31DE76029F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3D66A6F-1535-41B3-8068-7C31DE76029F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3D66A6F-1535-41B3-8068-7C31DE76029F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3D66A6F-1535-41B3-8068-7C31DE76029F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6450B8E-178C-43FE-953A-2D7697A580F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6450B8E-178C-43FE-953A-2D7697A580F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6450B8E-178C-43FE-953A-2D7697A580F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6450B8E-178C-43FE-953A-2D7697A580F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73179A4-78D2-42D5-BECC-58A8A2AF2795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73179A4-78D2-42D5-BECC-58A8A2AF2795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73179A4-78D2-42D5-BECC-58A8A2AF2795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73179A4-78D2-42D5-BECC-58A8A2AF2795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
