@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{855ECA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.TimeKeeping", "HR-Department.TimeKeeping\HR-Department.TimeKeeping.csproj", "{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.WebService", "HR-Department.WebService\HR-Department.WebService.csproj", "{9EF0442A-35FF-4080-AB5E-0EA20E0E69A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF0442A-35FF-4080-AB5E-0EA20E0E69A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF0442A-35FF-4080-AB5E-0EA20E0E69A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF0442A-35FF-4080-AB5E-0EA20E0E69A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF0442A-35FF-4080-AB5E-0EA20E0E69A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

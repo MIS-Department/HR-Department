@@ -75,6 +75,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HR-Department.DataLayer\HR-Department.DataLayer.csproj">
+      <Project>{c1a32539-0576-420e-b820-5ed6aabcd973}</Project>
+      <Name>HR-Department.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HR-Department.Models\HR-Department.Models.csproj">
+      <Project>{a6450b8e-178c-43fe-953a-2d7697a580f4}</Project>
+      <Name>HR-Department.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
