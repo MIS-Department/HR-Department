@@ -19,5 +19,15 @@ namespace HR_Department.IntegrationTest
                 Assert.AreEqual(1002,result.Count());
             }
         }
+
+        [Test]
+        public void EmployeeGetById()
+        {
+            using (var connection = new SqlConnection(ConfigurationSettings.GetConnectionString()))
+            {
+                var result = connection.Get<Employee>(911);
+                Assert.AreEqual(911, result.EmployeeId);
+            }
+        }
     }
 }
