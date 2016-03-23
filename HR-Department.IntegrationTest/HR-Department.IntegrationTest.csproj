@@ -80,10 +80,6 @@
       <Project>{a6450b8e-178c-43fe-953a-2d7697a580f4}</Project>
       <Name>HR-Department.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HR-Department.WebService\HR-Department.WebService.csproj">
-      <Project>{9ef0442a-35ff-4080-ab5e-0ea20e0e69a1}</Project>
-      <Name>HR-Department.WebService</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
