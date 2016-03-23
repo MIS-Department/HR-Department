@@ -16,7 +16,7 @@ namespace HR_Department.Models.Tables
         public DateTime Birthdate { get; set; }
         public string SssNumber { get; set; }
         public string TinNumber { get; set; }
-        public int CivilStatus { get; set; }
+        public int CivilStatusId { get; set; }
         public int TaxId { get; set; }
         public int DepartmentId { get; set; }
         public int SectionId { get; set; }
@@ -36,7 +36,7 @@ namespace HR_Department.Models.Tables
         public int WorkersId { get; set; }
         public string InCaseOfEmergencyName { get; set; }
         public string InCaseOfEmergencyContactNo { get; set; }
-        public string ImageEmployee { get; set; }
+        public byte[] ImageEmployee { get; set; }
         public int IsSelected { get; set; }
 
     }
@@ -57,7 +57,7 @@ namespace HR_Department.Models.Tables
             Map(m => m.Birthdate).Column("birthdate");
             Map(m => m.SssNumber).Column("sss_number");
             Map(m => m.TinNumber).Column("tin_number");
-            Map(m => m.CivilStatus).Column("civil_status");
+            Map(m => m.CivilStatusId).Column("civil_status_id");
             Map(m => m.TaxId).Column("tax_id");
             Map(m => m.DepartmentId).Column("department_id");
             Map(m => m.SectionId).Column("section_id");
@@ -66,7 +66,7 @@ namespace HR_Department.Models.Tables
             Map(m => m.DateRegularization).Column("date_regularization");
             Map(m => m.EmploymentStatusId).Column("employment_status_id");
             Map(m => m.PhilHealthNumber).Column("philhealth_number");
-            Map(m => m.HdmfNumber).Column("hrdm_number");
+            Map(m => m.HdmfNumber).Column("hdmf_number");
             Map(m => m.HdmfRtn).Column("hdmf_rtn");
             Map(m => m.SalaryRate).Column("salary_rate");
             Map(m => m.SalaryStructure).Column("salary_structure");
@@ -76,7 +76,7 @@ namespace HR_Department.Models.Tables
             Map(m => m.DateResign).Column("date_resigned");
             Map(m => m.WorkersId).Column("workers_id");
             Map(m => m.InCaseOfEmergencyName).Column("in_case_of_emergency_name");
-            Map(m => m.InCaseOfEmergencyContactNo).Column("in_case_of_emergency_number");
+            Map(m => m.InCaseOfEmergencyContactNo).Column("in_case_of_emergency_contact_number");
             Map(m => m.ImageEmployee).Column("image_employee");
             Map(m => m.IsSelected).Column("is_selected");
         }

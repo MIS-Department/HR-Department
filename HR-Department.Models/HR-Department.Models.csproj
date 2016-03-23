@@ -54,7 +54,6 @@
     <Compile Include="Tables\CalculatedTime.cs" />
     <Compile Include="Tables\DailyTimeRecord.cs" />
     <Compile Include="Tables\Employee.cs" />
-    <Compile Include="Tables\EmployeeSchedule.cs" />
     <Compile Include="Tables\Schedule.cs" />
     <Compile Include="Tables\Template.cs" />
     <Compile Include="Tables\TemplateSchedule.cs" />
@@ -63,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
