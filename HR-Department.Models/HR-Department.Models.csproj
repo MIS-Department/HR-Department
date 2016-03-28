@@ -54,6 +54,7 @@
     <Compile Include="Tables\CalculatedTime.cs" />
     <Compile Include="Tables\DailyTimeRecord.cs" />
     <Compile Include="Tables\Employee.cs" />
+    <Compile Include="Tables\EmployeeSchedule.cs" />
     <Compile Include="Tables\Schedule.cs" />
     <Compile Include="Tables\Template.cs" />
     <Compile Include="Tables\TemplateSchedule.cs" />
