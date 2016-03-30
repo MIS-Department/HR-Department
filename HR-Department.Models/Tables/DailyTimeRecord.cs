@@ -1,9 +1,9 @@
 ﻿using System;
-using DapperExtensions.Mapper;
+using HR_Department.Models.Tables.Interfaces;
 
 namespace HR_Department.Models.Tables
 {
-    public class DailyTimeRecord
+    public class DailyTimeRecord : IDailyTimeRecord
     {
         public int DailyTimeRecordId { get; set; }
         public int EmployeeId { get; set; }
@@ -11,15 +11,5 @@ namespace HR_Department.Models.Tables
         public DateTime DateCreated { get; set; }
         public DateTime Time { get; set; }
 
-    }
-
-    public sealed class DailyTimeRecordMapper : ClassMapper<DailyTimeRecord>
-    {
-        public DailyTimeRecordMapper()
-        {
-            Table("DailyTimeRecord");
-            Map(s => s.DailyTimeRecordId).Key(KeyType.Identity);
-            AutoMap();
-        }
     }
 }
