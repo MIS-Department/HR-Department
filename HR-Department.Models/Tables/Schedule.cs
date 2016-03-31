@@ -1,21 +1,11 @@
-﻿using DapperExtensions.Mapper;
+﻿using HR_Department.Models.Tables.Interfaces;
 
 namespace HR_Department.Models.Tables
 {
-    public class Schedule
+    public class Schedule : ISchedule
     {
         public int ScheduleId { get; set; }
         public string Name { get; set; }
 
-    }
-
-    public sealed class ScheduleMapper : ClassMapper<Schedule>
-    {
-        public ScheduleMapper()
-        {
-            Table("Schedule");
-            Map(s => s.ScheduleId).Key(KeyType.Identity);
-            AutoMap();
-        }
     }
 }

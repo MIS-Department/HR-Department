@@ -1,20 +1,11 @@
-﻿using DapperExtensions.Mapper;
+﻿using HR_Department.Models.Tables.Interfaces;
 
 namespace HR_Department.Models.Tables
 {
-    public class TimeType
+    public class TimeType : ITimeType
     {
+        
         public int TimeTypeId { get; set; }
         public string Name { get; set; }
-    }
-
-    public sealed class TimeTypeMapper : ClassMapper<TimeType>
-    {
-        public TimeTypeMapper()
-        {
-            Table("TimeType");
-            Map(s => s.TimeTypeId).Key(KeyType.Identity);
-            AutoMap();
-        }
     }
 }
