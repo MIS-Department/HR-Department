@@ -10,6 +10,7 @@ namespace HR_Department.Records.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 
