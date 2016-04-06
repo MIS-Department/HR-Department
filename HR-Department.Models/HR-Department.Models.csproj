@@ -37,10 +37,6 @@
       <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DapperExtensions, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DapperExtensions.1.4.4\lib\net40\DapperExtensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -65,15 +61,6 @@
     <Compile Include="Tables\Interfaces\ITemplateSchedule.cs" />
     <Compile Include="Tables\Interfaces\ITimeCategory.cs" />
     <Compile Include="Tables\Interfaces\ITimeType.cs" />
-    <Compile Include="Tables\Mapper\CalculatedTimeMapper.cs" />
-    <Compile Include="Tables\Mapper\DailyTimeRecordMapper.cs" />
-    <Compile Include="Tables\Mapper\EmployeeMapper.cs" />
-    <Compile Include="Tables\Mapper\EmployeeScheduleMapper.cs" />
-    <Compile Include="Tables\Mapper\ScheduleMapper.cs" />
-    <Compile Include="Tables\Mapper\TemplateMapper.cs" />
-    <Compile Include="Tables\Mapper\TemplateScheduleMapper.cs" />
-    <Compile Include="Tables\Mapper\TimeCategoryMapper.cs" />
-    <Compile Include="Tables\Mapper\TimeTypeMapper.cs" />
     <Compile Include="Tables\Schedule.cs" />
     <Compile Include="Tables\Template.cs" />
     <Compile Include="Tables\TemplateSchedule.cs" />
