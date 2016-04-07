@@ -44,7 +44,7 @@ namespace HR_Department.Models.Tables
         //public int WorkersId { get; set; }
         //public string InCaseOfEmergencyName { get; set; }
         //public string InCaseOfEmergencyContactNo { get; set; }
-        //[Required]   
+        [Required]
         public byte[] ImageEmployee { get; set; }
         //public int IsSelected { get; set; }
 
