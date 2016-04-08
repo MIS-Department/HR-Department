@@ -18,9 +18,9 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
     public partial class TimeKeepingMain : Form
     {
         int flag = 1;
-        string URI = "http://localhost:9080/hrdapi/employee";
+        string URI = "http://localhost:9810/hrdapi/employee";
         string searchstring = "employeenumber";
-        string URIDailyTimeRecord = "http://localhost:9080/hrdapi/dailytimerecord";
+        string URIDailyTimeRecord = "http://localhost:9810/hrdapi/dailytimerecord";
         public TimeKeepingMain()
         {
             InitializeComponent();
@@ -34,10 +34,6 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             lblDate.Text = DateTime.Now.ToString("yyyy MMMM dd");
 
         }
-
-
-
-
         public void clearTxtbox()
         {
             txtBarcode.Text = string.Empty;
@@ -81,8 +77,6 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             }
 
         }
-
-
         private void tmrBlinkedTimer_Tick(object sender, EventArgs e)
         {
             if (flag == 1)
@@ -113,11 +107,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                 lblBreakOut.Visible = true;
                 lblTimeIn.Visible = true;
             }
-
-
         }
-
-
         private async void GetEmployeeNumber()
         {
             using (var client = new HttpClient())
@@ -127,14 +117,11 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                     if (response.IsSuccessStatusCode)
                     {
                         var employeeJsonString = await response.Content.ReadAsStringAsync();
-
                         JsonConvert.DeserializeObjectAsync<Employee>(employeeJsonString);
                         lblEmployeeName.Text = JsonConvert.DeserializeObject<Employee>(employeeJsonString).FirstName + " " + JsonConvert.DeserializeObject<Employee>(employeeJsonString).MiddleName + " " + JsonConvert.DeserializeObject<Employee>(employeeJsonString).LastName;
                         lblEmployeeNumber.Text =
                             JsonConvert.DeserializeObject<Employee>(employeeJsonString).EmployeeNumber;
-
                         InsertDailyTimeRecord(JsonConvert.DeserializeObject<Employee>(employeeJsonString).EmployeeId);
-
                         try
                         {
                             byte[] imagSource = JsonConvert.DeserializeObject<Employee>(employeeJsonString).ImageEmployee;
@@ -185,7 +172,6 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         private async void GetAllDailtyTimeRecordSample()
         {
             dgvDetails.Columns.Clear();
-
             using (var client = new HttpClient())
             {
                 using (var response = await client.GetAsync(URIDailyTimeRecord))
@@ -204,22 +190,14 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         {
             GetEmployeeNumber();
         }
-
         private void txtBarcode_Enter(object sender, EventArgs e)
         {
             GetEmployeeNumber();
         }
-
-
         public int TempId(int tempId)
         {
             return tempId;
         }
-
-
     }
-
-
-
 }
 

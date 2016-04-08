@@ -1,4 +1,5 @@
-﻿using HR_Department.Models.Tables.Interfaces;
+﻿using System;
+using HR_Department.Models.Tables.Interfaces;
 
 namespace HR_Department.Models.Tables
 {
@@ -35,10 +36,10 @@ namespace HR_Department.Models.Tables
         public int WorkersId { get; set; }
         public string InCaseOfEmergencyName { get; set; }
         public string InCaseOfEmergencyContactNo { get; set; }
-        public string ImageEmployee { get; set; }
+        public byte[] ImageEmployee { get; set; }
         public int IsSelected { get; set; }
 
     }
 
     }
-}
+
