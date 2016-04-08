@@ -35,17 +35,23 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblNameCompany = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblEmployeeNumber = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.lblEmployeePosition = new System.Windows.Forms.Label();
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblTimeOut = new System.Windows.Forms.Label();
+            this.lblBreakIn = new System.Windows.Forms.Label();
+            this.lblBreakOut = new System.Windows.Forms.Label();
             this.lblTimeIn = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -57,6 +63,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.timeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tmrDateAndTime = new System.Windows.Forms.Timer(this.components);
             this.tmrBlinkedTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblErrorMessage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -128,6 +135,9 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblErrorMessage);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblEmployeeNumber);
             this.groupBox1.Controls.Add(this.txtBarcode);
             this.groupBox1.Controls.Add(this.lblEmployeePosition);
             this.groupBox1.Controls.Add(this.lblEmployeeName);
@@ -140,6 +150,25 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(384, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 32);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "ID No.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEmployeeNumber
+            // 
+            this.lblEmployeeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeNumber.Location = new System.Drawing.Point(412, 39);
+            this.lblEmployeeNumber.Name = "lblEmployeeNumber";
+            this.lblEmployeeNumber.Size = new System.Drawing.Size(188, 50);
+            this.lblEmployeeNumber.TabIndex = 4;
+            this.lblEmployeeNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtBarcode
             // 
             this.txtBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,7 +178,9 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.txtBarcode.Size = new System.Drawing.Size(398, 38);
             this.txtBarcode.TabIndex = 1;
             this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBarcode.Enter += new System.EventHandler(this.txtBarcode_Enter);
             this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
+            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             // 
             // lblEmployeePosition
             // 
@@ -185,6 +216,9 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.lblTimeOut);
+            this.groupBox3.Controls.Add(this.lblBreakIn);
+            this.groupBox3.Controls.Add(this.lblBreakOut);
             this.groupBox3.Controls.Add(this.lblTimeIn);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Location = new System.Drawing.Point(3, 351);
@@ -193,16 +227,54 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             // 
+            // lblTimeOut
+            // 
+            this.lblTimeOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimeOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTimeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeOut.ForeColor = System.Drawing.Color.Black;
+            this.lblTimeOut.Location = new System.Drawing.Point(15, 119);
+            this.lblTimeOut.Name = "lblTimeOut";
+            this.lblTimeOut.Size = new System.Drawing.Size(270, 100);
+            this.lblTimeOut.TabIndex = 3;
+            this.lblTimeOut.Text = "Time Out";
+            this.lblTimeOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBreakIn
+            // 
+            this.lblBreakIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBreakIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBreakIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreakIn.ForeColor = System.Drawing.Color.Black;
+            this.lblBreakIn.Location = new System.Drawing.Point(314, 119);
+            this.lblBreakIn.Name = "lblBreakIn";
+            this.lblBreakIn.Size = new System.Drawing.Size(270, 100);
+            this.lblBreakIn.TabIndex = 2;
+            this.lblBreakIn.Text = "Lunch In";
+            this.lblBreakIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBreakOut
+            // 
+            this.lblBreakOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBreakOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBreakOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreakOut.ForeColor = System.Drawing.Color.Black;
+            this.lblBreakOut.Location = new System.Drawing.Point(314, 16);
+            this.lblBreakOut.Name = "lblBreakOut";
+            this.lblBreakOut.Size = new System.Drawing.Size(270, 100);
+            this.lblBreakOut.TabIndex = 1;
+            this.lblBreakOut.Text = "Lunch Out";
+            this.lblBreakOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblTimeIn
             // 
-            this.lblTimeIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTimeIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTimeIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lblTimeIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeIn.ForeColor = System.Drawing.Color.Red;
-            this.lblTimeIn.Location = new System.Drawing.Point(3, 16);
+            this.lblTimeIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimeIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTimeIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeIn.ForeColor = System.Drawing.Color.Black;
+            this.lblTimeIn.Location = new System.Drawing.Point(15, 16);
             this.lblTimeIn.Name = "lblTimeIn";
-            this.lblTimeIn.Size = new System.Drawing.Size(594, 207);
+            this.lblTimeIn.Size = new System.Drawing.Size(270, 100);
             this.lblTimeIn.TabIndex = 0;
             this.lblTimeIn.Text = "Time In";
             this.lblTimeIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,7 +296,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(730, 79);
             this.lblTime.TabIndex = 4;
-            this.lblTime.Text = "Employee Name";
+            this.lblTime.Text = "Time and Date";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvDetails
@@ -233,6 +305,14 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.dgvDetails.AllowUserToDeleteRows = false;
             this.dgvDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetails.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.date,
@@ -240,15 +320,15 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.brakeOut,
             this.brakeIn,
             this.timeOut});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDetails.Location = new System.Drawing.Point(0, 253);
             this.dgvDetails.Name = "dgvDetails";
@@ -298,6 +378,16 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.tmrBlinkedTimer.Interval = 500;
             this.tmrBlinkedTimer.Tick += new System.EventHandler(this.tmrBlinkedTimer_Tick);
             // 
+            // lblErrorMessage
+            // 
+            this.lblErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorMessage.Location = new System.Drawing.Point(3, 301);
+            this.lblErrorMessage.Name = "lblErrorMessage";
+            this.lblErrorMessage.Size = new System.Drawing.Size(597, 47);
+            this.lblErrorMessage.TabIndex = 6;
+            this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // TimeKeepingMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,7 +400,6 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.Name = "TimeKeepingMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TimeKeeping";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TimeKeeping_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -349,5 +438,11 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         private Timer tmrDateAndTime;
         private Timer tmrBlinkedTimer;
         private PictureBox pictureBox2;
+        private Label lblTimeOut;
+        private Label lblBreakIn;
+        private Label lblBreakOut;
+        private Label lblEmployeeNumber;
+        private Label label1;
+        private Label lblErrorMessage;
     }
 }
