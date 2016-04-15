@@ -1,24 +1,22 @@
 ﻿using System;
-using DapperExtensions.Mapper;
+using System.ComponentModel.DataAnnotations;
+using HR_Department.Models.Tables.Interfaces;
 
 namespace HR_Department.Models.Tables
 {
-    public class CalculatedTime
+    public class CalculatedTime : ICalculatedTime
     {
         public int CalculatedTimeId { get; set; }
+
+        [Required]
         public int TimeTypeId { get; set; }
+
+        [Display(Name = "Manpower Hours")]
+        [Required]
         public DateTime Value { get; set; }
+
+        [Required]
         public int DateTimeRecordId { get; set; }
 
-    }
-
-    public sealed class CalculatedTimeMapper : ClassMapper<CalculatedTime>
-    {
-        public CalculatedTimeMapper()
-        {
-            Table("CalculatedTime");
-            Map(s => s.CalculatedTimeId).Key(KeyType.Identity);
-            AutoMap();
-        }
-    }
+    }   
 }

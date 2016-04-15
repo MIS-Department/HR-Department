@@ -1,20 +1,15 @@
-﻿using DapperExtensions.Mapper;
+﻿using HR_Department.Models.Tables.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace HR_Department.Models.Tables
 {
-    public class TimeType
-    {
+    public class TimeType : ITimeType
+    {    
         public int TimeTypeId { get; set; }
-        public string Name { get; set; }
-    }
 
-    public sealed class TimeTypeMapper : ClassMapper<TimeType>
-    {
-        public TimeTypeMapper()
-        {
-            Table("TimeType");
-            Map(s => s.TimeTypeId).Key(KeyType.Identity);
-            AutoMap();
-        }
+        [StringLength(50, MinimumLength = 3)]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [Required]
+        public string Name { get; set; }
     }
 }
