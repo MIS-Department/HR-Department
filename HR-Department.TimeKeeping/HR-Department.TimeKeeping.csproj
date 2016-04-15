@@ -14,6 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,13 +36,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HR-Department.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HR-Department.Models.dll</HintPath>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DapperExtensions, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DapperExtensions.1.4.4\lib\net40\DapperExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HR-Department.Models">
+      <HintPath>\\192.168.2.8\Users\jonathan.guinto\Desktop\Projects\OG-MFTG\OG-MFTG.Models\bin\Debug\HR-Department.Models.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="OG-MFTG.Models">
+      <HintPath>\\192.168.2.8\Users\jonathan.guinto\Desktop\Projects\OG-MFTG\OG-MFTG.Models\bin\Debug\OG-MFTG.Models.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,6 +74,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TimeKeepingForms\frmMessageError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeKeepingForms\frmMessageError.Designer.cs">
+      <DependentUpon>frmMessageError.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimeKeepingForms\TimeKeeping.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +90,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeKeepingForms\frmMessageError.resx">
+      <DependentUpon>frmMessageError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeKeepingForms\TimeKeeping.resx">
       <DependentUpon>TimeKeeping.cs</DependentUpon>
@@ -93,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Default.png" />
+    <Content Include="Resources\Information.png" />
+    <None Include="Resources\Information1.png" />
+    <None Include="Resources\32px-Red_information_icon_with_gradient_background.svg.png" />
     <None Include="Images\Logo 2.png" />
     <None Include="Images\Logo.png" />
   </ItemGroup>

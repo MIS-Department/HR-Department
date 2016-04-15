@@ -35,13 +35,14 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblNameCompany = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pctErrorMessage = new System.Windows.Forms.PictureBox();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEmployeeNumber = new System.Windows.Forms.Label();
@@ -57,14 +58,10 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brakeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brakeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tmrDateAndTime = new System.Windows.Forms.Timer(this.components);
             this.tmrBlinkedTimer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -72,9 +69,11 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctErrorMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,6 +135,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pctErrorMessage);
             this.groupBox1.Controls.Add(this.lblErrorMessage);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblEmployeeNumber);
@@ -151,13 +151,25 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // pctErrorMessage
+            // 
+            this.pctErrorMessage.BackColor = System.Drawing.Color.Transparent;
+            this.pctErrorMessage.Image = global::HR_Department.TimeKeeping.Properties.Resources.Information;
+            this.pctErrorMessage.Location = new System.Drawing.Point(78, 259);
+            this.pctErrorMessage.Name = "pctErrorMessage";
+            this.pctErrorMessage.Size = new System.Drawing.Size(57, 49);
+            this.pctErrorMessage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctErrorMessage.TabIndex = 7;
+            this.pctErrorMessage.TabStop = false;
+            this.pctErrorMessage.Visible = false;
+            // 
             // lblErrorMessage
             // 
-            this.lblErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMessage.Location = new System.Drawing.Point(3, 263);
+            this.lblErrorMessage.Location = new System.Drawing.Point(0, 263);
             this.lblErrorMessage.Name = "lblErrorMessage";
-            this.lblErrorMessage.Size = new System.Drawing.Size(597, 47);
+            this.lblErrorMessage.Size = new System.Drawing.Size(600, 47);
             this.lblErrorMessage.TabIndex = 6;
             this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -174,9 +186,9 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             // lblEmployeeNumber
             // 
             this.lblEmployeeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeNumber.Location = new System.Drawing.Point(412, 39);
+            this.lblEmployeeNumber.Location = new System.Drawing.Point(389, 39);
             this.lblEmployeeNumber.Name = "lblEmployeeNumber";
-            this.lblEmployeeNumber.Size = new System.Drawing.Size(188, 50);
+            this.lblEmployeeNumber.Size = new System.Drawing.Size(211, 50);
             this.lblEmployeeNumber.TabIndex = 4;
             this.lblEmployeeNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -185,18 +197,15 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.txtBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarcode.Location = new System.Drawing.Point(96, 218);
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.PasswordChar = '*';
             this.txtBarcode.Size = new System.Drawing.Size(398, 38);
             this.txtBarcode.TabIndex = 1;
             this.txtBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBarcode.Enter += new System.EventHandler(this.txtBarcode_Enter);
             this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
-            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             // 
             // lblEmployeePosition
             // 
             this.lblEmployeePosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeePosition.Location = new System.Drawing.Point(199, 130);
+            this.lblEmployeePosition.Location = new System.Drawing.Point(199, 152);
             this.lblEmployeePosition.Name = "lblEmployeePosition";
             this.lblEmployeePosition.Size = new System.Drawing.Size(401, 41);
             this.lblEmployeePosition.TabIndex = 3;
@@ -206,7 +215,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             // lblEmployeeName
             // 
             this.lblEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeName.Location = new System.Drawing.Point(199, 79);
+            this.lblEmployeeName.Location = new System.Drawing.Point(199, 100);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(401, 41);
             this.lblEmployeeName.TabIndex = 2;
@@ -257,11 +266,11 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.lblBreakIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblBreakIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBreakIn.ForeColor = System.Drawing.Color.Black;
-            this.lblBreakIn.Location = new System.Drawing.Point(314, 119);
+            this.lblBreakIn.Location = new System.Drawing.Point(305, 16);
             this.lblBreakIn.Name = "lblBreakIn";
             this.lblBreakIn.Size = new System.Drawing.Size(270, 100);
             this.lblBreakIn.TabIndex = 2;
-            this.lblBreakIn.Text = "Lunch In";
+            this.lblBreakIn.Text = "Break In";
             this.lblBreakIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBreakOut
@@ -270,11 +279,11 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.lblBreakOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblBreakOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBreakOut.ForeColor = System.Drawing.Color.Black;
-            this.lblBreakOut.Location = new System.Drawing.Point(314, 16);
+            this.lblBreakOut.Location = new System.Drawing.Point(305, 119);
             this.lblBreakOut.Name = "lblBreakOut";
             this.lblBreakOut.Size = new System.Drawing.Size(270, 100);
             this.lblBreakOut.TabIndex = 1;
-            this.lblBreakOut.Text = "Lunch Out";
+            this.lblBreakOut.Text = "Break Out";
             this.lblBreakOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimeIn
@@ -316,66 +325,30 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.dgvDetails.AllowUserToDeleteRows = false;
             this.dgvDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetails.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.date,
-            this.timeIn,
-            this.brakeOut,
-            this.brakeIn,
-            this.timeOut});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetails.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvDetails.Location = new System.Drawing.Point(0, 217);
+            this.dgvDetails.Location = new System.Drawing.Point(0, 241);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
-            this.dgvDetails.Size = new System.Drawing.Size(736, 331);
+            this.dgvDetails.Size = new System.Drawing.Size(736, 307);
             this.dgvDetails.TabIndex = 0;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // timeIn
-            // 
-            this.timeIn.HeaderText = "Time In";
-            this.timeIn.Name = "timeIn";
-            this.timeIn.ReadOnly = true;
-            // 
-            // brakeOut
-            // 
-            this.brakeOut.HeaderText = "Lunch Out";
-            this.brakeOut.Name = "brakeOut";
-            this.brakeOut.ReadOnly = true;
-            // 
-            // brakeIn
-            // 
-            this.brakeIn.HeaderText = "Lunch In";
-            this.brakeIn.Name = "brakeIn";
-            this.brakeIn.ReadOnly = true;
-            // 
-            // timeOut
-            // 
-            this.timeOut.HeaderText = "Time Out";
-            this.timeOut.Name = "timeOut";
-            this.timeOut.ReadOnly = true;
             // 
             // tmrDateAndTime
             // 
@@ -392,10 +365,21 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(0, 695);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1350, 35);
             this.panel2.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(324, 35);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "© 2016 O&&G Leather Manufacturing Corp. ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TimeKeepingMain
             // 
@@ -418,9 +402,11 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctErrorMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -433,11 +419,6 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         private PictureBox pictureBox1;
         private DataGridView dgvDetails;
         private GroupBox groupBox1;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn timeIn;
-        private DataGridViewTextBoxColumn brakeOut;
-        private DataGridViewTextBoxColumn brakeIn;
-        private DataGridViewTextBoxColumn timeOut;
         private Label lblEmployeePosition;
         private Label lblEmployeeName;
         private GroupBox groupBox3;
@@ -455,5 +436,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
         private Label label1;
         private Label lblErrorMessage;
         private Panel panel2;
+        private PictureBox pctErrorMessage;
+        private Label label2;
     }
 }

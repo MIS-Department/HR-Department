@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using HR_Department.Models.Tables;
+using HR_Department.TimeKeeping.Properties;
 using Newtonsoft.Json;
-
+using OG_MFTG.Models.DTO;
 
 namespace HR_Department.TimeKeeping.TimeKeepingForms
 {
 
     public partial class TimeKeepingMain : Form
     {
-        int flag = 1;
-        string URI = "http://localhost:9810/hrdapi/employee";
-        string searchstring = "employeenumber";
-        string URIDailyTimeRecord = "http://localhost:9810/hrdapi/dailytimerecord";
+       frmMessageError messageError = new frmMessageError();
+        private int _flag = 1;
+        string _uri = "http://localhost:9081/hrdapi/employee";
+        string _searchstring = "employeenumber";
+        string _timecategoryid = "timecategoryid";
+        string _uriDailyTimeRecord = "http://192.168.2.8:9081/hrdapi/dailytimerecord";
         public TimeKeepingMain()
         {
             InitializeComponent();
@@ -32,99 +30,127 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
 
             lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblDate.Text = DateTime.Now.ToString("yyyy MMMM dd");
-
         }
-        public void clearTxtbox()
+        public void ClearTxtbox()
         {
-            txtBarcode.Text = string.Empty;
+            txtBarcode.Clear();
         }
 
         private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
         {
-      
+            
 
             if (e.KeyCode == Keys.Enter)
             {
+               
                 GetEmployeeNumber();
+                txtBarcode.Clear();
 
-                clearTxtbox();          
             }
             else if (e.KeyCode == Keys.NumLock)
             {
-                clearTxtbox();
-                flag = 1;
+             
+                _flag = 1;
+                ClearTxtbox();
             }
             else if (e.KeyCode == Keys.Divide)
             {
-                clearTxtbox();
-                flag = 2;
+                
+                _flag = 2;
+                ClearTxtbox();
             }
             else if (e.KeyCode == Keys.Multiply)
             {
-                clearTxtbox();
-                flag = 3;
-
+                
+                _flag = 3;
+                ClearTxtbox();
             }
             else if (e.KeyCode == Keys.Subtract)
             {
-                clearTxtbox();
-                flag = 4;
+                
+                _flag = 4;
+                ClearTxtbox();
 
             }
             else if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.Multiply || e.KeyCode == Keys.Divide || e.KeyCode == Keys.NumLock || e.KeyCode == Keys.NumPad1 || e.KeyCode == Keys.NumPad2 || e.KeyCode == Keys.NumPad3 || e.KeyCode == Keys.NumPad4 || e.KeyCode == Keys.NumPad5 || e.KeyCode == Keys.NumPad6 || e.KeyCode == Keys.NumPad7 || e.KeyCode == Keys.NumPad8 || e.KeyCode == Keys.NumPad9)
             {
-                clearTxtbox();
+                ClearTxtbox();
             }
 
         }
         private void tmrBlinkedTimer_Tick(object sender, EventArgs e)
         {
-            if (flag == 1)
+            if (_flag == 1)
             {
                 lblTimeIn.Visible = !lblTimeIn.Visible;
                 lblBreakIn.Visible = true;
                 lblBreakOut.Visible = true;
                 lblTimeOut.Visible = true;
             }
-            else if (flag == 2)
+            else if (_flag == 4)
             {
                 lblBreakOut.Visible = !lblBreakOut.Visible;
                 lblBreakIn.Visible = true;
                 lblTimeOut.Visible = true;
                 lblTimeIn.Visible = true;
+                
+
             }
-            else if (flag == 3)
+            else if (_flag == 3)
             {
                 lblBreakIn.Visible = !lblBreakIn.Visible;
                 lblTimeOut.Visible = true;
                 lblBreakOut.Visible = true;
                 lblTimeIn.Visible = true;
+                
+
             }
-            else if (flag == 4)
+            else if (_flag == 2)
             {
                 lblTimeOut.Visible = !lblTimeOut.Visible;
                 lblBreakIn.Visible = true;
                 lblBreakOut.Visible = true;
                 lblTimeIn.Visible = true;
+                
             }
+
+            if (pctErrorMessage.Visible)
+            {
+                pctErrorMessage.Visible = !pctErrorMessage.Visible;
+            }
+          
         }
         private async void GetEmployeeNumber()
         {
+           
             using (var client = new HttpClient())
             {
-                using (var response = await client.GetAsync(string.Format("{0}/{1}/{2}", URI, txtBarcode.Text, searchstring)))
+                using (var response = await client.GetAsync(string.Format("{0}?employeenumber={1}&timecategoryid={2}", _uriDailyTimeRecord, txtBarcode.Text.Trim('/', '*', '-'), _flag)))
+
                 {
+
                     if (response.IsSuccessStatusCode)
                     {
+                        lblErrorMessage.Text = null;
+                        pctErrorMessage.Visible = false;
+                        dgvDetails.DataSource = null;
                         var employeeJsonString = await response.Content.ReadAsStringAsync();
-                        JsonConvert.DeserializeObjectAsync<Employee>(employeeJsonString);
-                        lblEmployeeName.Text = JsonConvert.DeserializeObject<Employee>(employeeJsonString).FirstName + " " + JsonConvert.DeserializeObject<Employee>(employeeJsonString).MiddleName + " " + JsonConvert.DeserializeObject<Employee>(employeeJsonString).LastName;
-                        lblEmployeeNumber.Text =
-                            JsonConvert.DeserializeObject<Employee>(employeeJsonString).EmployeeNumber;
-                        InsertDailyTimeRecord(JsonConvert.DeserializeObject<Employee>(employeeJsonString).EmployeeId);
                         try
                         {
-                            byte[] imagSource = JsonConvert.DeserializeObject<Employee>(employeeJsonString).ImageEmployee;
+
+                            lblEmployeeNumber.Text =
+                                JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString)
+                                    .Employee.EmployeeNumber;
+                            lblEmployeeName.Text = JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Employee.FirstName +
+                                                   " " +
+                                                   JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Employee.MiddleName +
+                                                   " " +
+                                                   JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Employee.LastName;
+                            dgvDetails.DataSource =
+                                JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString)
+                                    .DailyTimeRecord.ToList();
+                            byte[] imagSource =
+                                JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Employee.ImageEmployee;
                             Bitmap image;
                             using (MemoryStream stream = new MemoryStream(imagSource))
                             {
@@ -134,69 +160,62 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                         }
                         catch (Exception ex)
                         {
+                            pctErrorMessage.Visible = true;
+                            pctErrorMessage.Image = Resources.Information;
                             lblErrorMessage.Text = ex.Message;
-                          
+
+                        }
+
+                        if (JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).IsSuspended)
+                        {
+                            //MessageBox.Show("You are suspended today", "System Denied", MessageBoxButtons.OKCancel);
+                            messageError.Show();
+                        }
+
+                        if (JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).IsTimeCheck)
+                        {
+                            if (_flag == 1)
+                            {
+                                pctErrorMessage.Visible = true;
+                                lblErrorMessage.ImageAlign = ContentAlignment.MiddleLeft;
+                                lblErrorMessage.Text = "You already time in";
+                            }
+                            else if (_flag == 2)
+                            {
+                                pctErrorMessage.Visible = true;
+                                pctErrorMessage.Image = Resources._32px_Red_information_icon_with_gradient_background_svg;
+                                lblErrorMessage.Text = "You already break out";
+                            }
+                            else if (_flag == 3)
+                            {
+                                pctErrorMessage.Visible = true;
+                                pctErrorMessage.Image = Resources.Information;
+                                lblErrorMessage.Text = "You already break in";
+                            }
+                            else if (_flag == 4)
+                            {
+                                pctErrorMessage.Visible = true;
+                                pctErrorMessage.Image = Resources.Information;
+                                lblErrorMessage.Text = "You already time out";
+                            }
+
+
+                        }
+                        if (JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Error != null)
+                        {
+                            pctErrorMessage.Visible = true;
+                            pctErrorMessage.Image = Resources.Information;
+                            lblErrorMessage.Text = JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Error.Message;
                         }
                     }
-                }
-            }
-        }
-
-        private async Task<int> InsertDailyTimeRecord(int tempId)
-        {
-            DailyTimeRecord dtr = new DailyTimeRecord();
-            dtr.EmployeeId = tempId;
-            dtr.TimeCategoryId = flag;
-            dtr.DateCreated = System.DateTime.Now;
-            dtr.Time = System.DateTime.Now;
-            using (var client = new HttpClient())
-            {
-                try
-                {
-                    var serializeDailyTimeRecord = JsonConvert.SerializeObject(dtr);
-                    var content = new StringContent(serializeDailyTimeRecord, Encoding.UTF8, "application/json");
-                    await client.PostAsync(URIDailyTimeRecord, content);
-                }
-                catch (Exception ex)
-                {
-
-                    lblErrorMessage.Text = ex.Message;
-                    throw;
-                }
-
-            }
-            GetAllDailtyTimeRecordSample();
-            return tempId;
-        }
-
-        private async void GetAllDailtyTimeRecordSample()
-        {
-            dgvDetails.Columns.Clear();
-            using (var client = new HttpClient())
-            {
-                using (var response = await client.GetAsync(URIDailyTimeRecord))
-                {
-                    if (response.IsSuccessStatusCode)
+                    else
                     {
-                        var DailyTimeRecordJsonString = await response.Content.ReadAsStringAsync();
-                        dgvDetails.DataSource =
-                            JsonConvert.DeserializeObject<DailyTimeRecord[]>(DailyTimeRecordJsonString).ToList();
+                        pctErrorMessage.Visible = true;
+                        pctErrorMessage.Image = Resources.Information;
+                        lblErrorMessage.Text = "Access Denied";
                     }
                 }
             }
-        }
-
-        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            GetEmployeeNumber();
-        }
-        private void txtBarcode_Enter(object sender, EventArgs e)
-        {
-            GetEmployeeNumber();
-        }
-        public int TempId(int tempId)
-        {
-            return tempId;
         }
     }
 }
