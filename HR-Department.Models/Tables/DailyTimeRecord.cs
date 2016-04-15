@@ -9,10 +9,17 @@ namespace HR_Department.Models.Tables
         public int DailyTimeRecordId { get; set; }
 
         [Required]
+<<<<<<< HEAD
+        public int EmployeeId { get; set; }
+
+        [Required]
+        public int TimeCategoryId { get; set; }
+=======
         public int? EmployeeId { get; set; }
 
         [Required]
         public int? TimeCategoryId { get; set; }
+>>>>>>> master
 
         [Required]
         [DataType(DataType.Date)]

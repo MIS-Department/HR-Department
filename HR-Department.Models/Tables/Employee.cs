@@ -7,6 +7,18 @@ namespace HR_Department.Models.Tables
     {
         public int EmployeeId { get; set; }
 
+<<<<<<< HEAD
+        [Required]
+        public string EmployeeNumber { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+=======
         [Required]  
         public string EmployeeNumber { get; set; }
 
@@ -17,6 +29,7 @@ namespace HR_Department.Models.Tables
         public string FirstName { get; set; }
 
         [Required]                       
+>>>>>>> master
         public string MiddleName { get; set; }
         //public string Address { get; set; }
         //public string Gender { get; set; }

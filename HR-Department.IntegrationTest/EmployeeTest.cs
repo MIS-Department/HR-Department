@@ -1,4 +1,9 @@
 ﻿using System.Data.SqlClient;
+<<<<<<< HEAD
+using System.Linq;
+using Dapper.Extensions.Linq.Extensions;
+=======
+>>>>>>> master
 using HR_Department.DataLayer;
 using NUnit.Framework;
 
