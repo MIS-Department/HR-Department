@@ -20,13 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{855ECA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.TimeKeeping", "HR-Department.TimeKeeping\HR-Department.TimeKeeping.csproj", "{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget (2)", ".nuget (2)", "{8D0EDD06-BC25-4CE4-AFAB-D9BD93EC017D}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.Config = C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.Config
-		C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.exe = C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.exe
-		C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.targets = C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
