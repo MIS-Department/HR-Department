@@ -15,7 +15,7 @@ namespace HR_Department.IntegrationTest
                 //var result = connection.GetList<Employee>();
 
                 //var enumerable = result as IList<Employee> ?? result.ToList();
-
+                                                              
                 //foreach (var model in enumerable)
                 //{
                 //    Console.WriteLine("EmployeeId: {0}", model.EmployeeId);
