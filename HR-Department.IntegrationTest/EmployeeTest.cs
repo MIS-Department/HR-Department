@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Linq;
-using DapperExtensions;
+using Dapper.Extensions.Linq.Extensions;
 using HR_Department.DataLayer;
 using HR_Department.Models.Tables;
 using NUnit.Framework;

@@ -1,13 +1,22 @@
-﻿using HR_Department.Models.Tables.Interfaces;
+﻿using System.ComponentModel.DataAnnotations;
+using HR_Department.Models.Tables.Interfaces;
 
 namespace HR_Department.Models.Tables
 {
     public class Employee : IEmployee
     {
         public int EmployeeId { get; set; }
+
+        [Required]
         public string EmployeeNumber { get; set; }
+
+        [Required]
         public string LastName { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
+
+        [Required]
         public string MiddleName { get; set; }
         //public string Address { get; set; }
         //public string Gender { get; set; }
@@ -35,6 +44,7 @@ namespace HR_Department.Models.Tables
         //public int WorkersId { get; set; }
         //public string InCaseOfEmergencyName { get; set; }
         //public string InCaseOfEmergencyContactNo { get; set; }
+        [Required]
         public byte[] ImageEmployee { get; set; }
         //public int IsSelected { get; set; }
 

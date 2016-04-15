@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.DataLayer", "HR-Department.DataLayer\HR-Department.DataLayer.csproj", "{C1A32539-0576-420E-B820-5ED6AABCD973}"
 EndProject
@@ -19,6 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{855ECA
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Department.TimeKeeping", "HR-Department.TimeKeeping\HR-Department.TimeKeeping.csproj", "{8D4EAF52-5DF6-48D0-B2AF-A3E4D7B4BF48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget (2)", ".nuget (2)", "{8D0EDD06-BC25-4CE4-AFAB-D9BD93EC017D}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.Config = C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.Config
+		C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.exe = C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.exe
+		C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.targets = C:\Users\rowllens.cunanan\Desktop\OG-MFTG\.nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
