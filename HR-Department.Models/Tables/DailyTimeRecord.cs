@@ -7,19 +7,12 @@ namespace HR_Department.Models.Tables
     public class DailyTimeRecord : IDailyTimeRecord
     {
         public int DailyTimeRecordId { get; set; }
-
-        [Required]
-<<<<<<< HEAD
-        public int EmployeeId { get; set; }
-
-        [Required]
-        public int TimeCategoryId { get; set; }
-=======
+        
+        [Required] 
         public int? EmployeeId { get; set; }
 
         [Required]
-        public int? TimeCategoryId { get; set; }
->>>>>>> master
+        public int? TimeCategoryId { get; set; }      
 
         [Required]
         [DataType(DataType.Date)]
