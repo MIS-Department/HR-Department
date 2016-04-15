@@ -37,12 +37,17 @@
       <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="Dapper.Extensions.Linq, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Extensions.Linq.1.1.17\lib\net45\Dapper.Extensions.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper.Extensions.Linq.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.Extensions.Linq.Core.1.0.8\lib\net45\Dapper.Extensions.Linq.Core.dll</HintPath>
+=======
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+>>>>>>> master
       <Private>True</Private>
     </Reference>
     <Reference Include="HR-Department.DataLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
