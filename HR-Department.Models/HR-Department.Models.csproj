@@ -37,17 +37,21 @@
       <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-<!--<<<<<<< HEAD-->
+    <!--<<<<<<< HEAD-->
     <Reference Include="DapperExtensions, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DapperExtensions.1.4.4\lib\net40\DapperExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-<!--=======-->
-<!-->>>>>>> master-->
+    <!--=======-->
+    <!-->>>>>>> master-->
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -77,10 +81,12 @@
     <Compile Include="Tables\DailyTimeRecord.cs" />
     <Compile Include="Tables\Employee.cs" />
     <Compile Include="Tables\EmployeeSchedule.cs" />
+    <Compile Include="Tables\ExternalLogin.cs" />
     <Compile Include="Tables\Interfaces\ICalculatedTime.cs" />
     <Compile Include="Tables\Interfaces\IDailyTimeRecord.cs" />
     <Compile Include="Tables\Interfaces\IEmployee.cs" />
     <Compile Include="Tables\Interfaces\IEmployeeSchedule.cs" />
+    <Compile Include="Tables\Interfaces\IExternalLogin.cs" />
     <Compile Include="Tables\Interfaces\ISchedule.cs" />
     <Compile Include="Tables\Interfaces\ITemplate.cs" />
     <Compile Include="Tables\Interfaces\ITemplateSchedule.cs" />
@@ -91,6 +97,7 @@
     <Compile Include="Tables\TemplateSchedule.cs" />
     <Compile Include="Tables\TimeCategory.cs" />
     <Compile Include="Tables\TimeType.cs" />
+    <Compile Include="Tables\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />

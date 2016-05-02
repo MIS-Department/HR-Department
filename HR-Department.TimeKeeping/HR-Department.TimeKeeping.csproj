@@ -45,14 +45,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HR-Department.Models">
-      <HintPath>\\192.168.2.8\Users\jonathan.guinto\Desktop\Projects\OG-MFTG\OG-MFTG.Models\bin\Debug\HR-Department.Models.dll</HintPath>
+      <HintPath>..\HR-Department.Models\bin\Debug\HR-Department.Models.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="OG-MFTG.Models">
-      <HintPath>\\192.168.2.8\Users\jonathan.guinto\Desktop\Projects\OG-MFTG\OG-MFTG.Models\bin\Debug\OG-MFTG.Models.dll</HintPath>
+      <HintPath>..\..\WebService\Web-Service\OG-MFTG.Models\bin\Debug\OG-MFTG.Models.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
