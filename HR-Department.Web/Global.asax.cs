@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace HR_Department.Records
+namespace HR_Department.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
