@@ -13,7 +13,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
 
     public partial class TimeKeepingMain : Form
     {
-       frmMessageError messageError = new frmMessageError();
+        frmMessageError messageError = new frmMessageError();
         private int _flag = 1;
         string _uri = "http://localhost:9081/hrdapi/employee";
         string _searchstring = "employeenumber";
@@ -38,36 +38,36 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
 
         private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
 
             if (e.KeyCode == Keys.Enter)
             {
-               
+
                 GetEmployeeNumber();
                 txtBarcode.Clear();
 
             }
             else if (e.KeyCode == Keys.NumLock)
             {
-             
+
                 _flag = 1;
                 ClearTxtbox();
             }
             else if (e.KeyCode == Keys.Divide)
             {
-                
+
                 _flag = 2;
                 ClearTxtbox();
             }
             else if (e.KeyCode == Keys.Multiply)
             {
-                
+
                 _flag = 3;
                 ClearTxtbox();
             }
             else if (e.KeyCode == Keys.Subtract)
             {
-                
+
                 _flag = 4;
                 ClearTxtbox();
 
@@ -93,7 +93,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                 lblBreakIn.Visible = true;
                 lblTimeOut.Visible = true;
                 lblTimeIn.Visible = true;
-                
+
 
             }
             else if (_flag == 3)
@@ -102,7 +102,7 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                 lblTimeOut.Visible = true;
                 lblBreakOut.Visible = true;
                 lblTimeIn.Visible = true;
-                
+
 
             }
             else if (_flag == 2)
@@ -111,18 +111,18 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                 lblBreakIn.Visible = true;
                 lblBreakOut.Visible = true;
                 lblTimeIn.Visible = true;
-                
+
             }
 
             if (pctErrorMessage.Visible)
             {
                 pctErrorMessage.Visible = !pctErrorMessage.Visible;
             }
-          
+
         }
         private async void GetEmployeeNumber()
         {
-           
+
             using (var client = new HttpClient())
             {
                 using (var response = await client.GetAsync(string.Format("{0}?employeenumber={1}&timecategoryid={2}", _uriDailyTimeRecord, txtBarcode.Text.Trim('/', '*', '-'), _flag)))
