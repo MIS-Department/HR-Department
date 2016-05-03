@@ -7,16 +7,19 @@ namespace HR_Department.Models.Tables
     {
         public int EmployeeId { get; set; }
 
-
+        [Display(Name = "Employee Number")]
         [Required]  
         public string EmployeeNumber { get; set; }
 
+        [Display(Name = "Last Name")]
         [Required]                    
         public string LastName { get; set; }
 
+        [Display(Name = "First Name")]
         [Required]                      
         public string FirstName { get; set; }
 
+        [Display(Name = "MI")]
         [Required]    
         public string MiddleName { get; set; }
         //public string Address { get; set; }
