@@ -1,44 +1,13 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using OG_MFTG.DataLayer.Repositories;
-using PagedList;
+﻿using System.Web.Mvc;
 
 namespace HR_Department.Web.Controllers
 {
     public class EmployeeController : Controller
     {
-        private EmployeeRepository _employeeRepository;
-
         // GET: Employee
-        public async Task<ActionResult> Index(string searchString, string currentFilter, int? page)
+        public ActionResult Index()
         {
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-            ViewBag.CurrentFilter = searchString;
-
-            _employeeRepository = new EmployeeRepository();
-            var employeeLst = await _employeeRepository.SelectAll();
-
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                employeeLst =
-                    employeeLst.ToList()
-                        .Where(
-                            s =>
-                                s.LastName.ToLower().Contains(searchString.ToLower()) ||
-                                s.FirstName.ToLower().Contains(searchString.ToLower()));
-            }
-            const int pageSize = 10;
-            var pagenumber = (page ?? 1);
-
-            return View(employeeLst.ToPagedList(pagenumber, pageSize));
+            return View();
         }
 
         // GET: Employee/Details/5

@@ -149,14 +149,14 @@ namespace HR_Department.TimeKeeping.TimeKeepingForms
                             dgvDetails.DataSource =
                                 JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString)
                                     .DailyTimeRecord.ToList();
-                            //byte[] imagSource =
-                            //    JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Employee.ImageEmployee;
-                            //Bitmap image;
-                            //using (MemoryStream stream = new MemoryStream(imagSource))
-                            //{
-                            //    image = new Bitmap(stream);
-                            //}
-                            //pictureBox1.Image = image;
+                            byte[] imagSource =
+                                JsonConvert.DeserializeObject<EmployeeNotify>(employeeJsonString).Employee.ImageEmployee;
+                            Bitmap image;
+                            using (MemoryStream stream = new MemoryStream(imagSource))
+                            {
+                                image = new Bitmap(stream);
+                            }
+                            pictureBox1.Image = image;
                         }
                         catch (Exception ex)
                         {
