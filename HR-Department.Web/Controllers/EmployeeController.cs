@@ -42,7 +42,7 @@ namespace HR_Department.Web.Controllers
         }
 
         // GET: Employee/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             return View();
         }
